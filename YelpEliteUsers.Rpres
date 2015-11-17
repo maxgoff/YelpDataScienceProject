@@ -1,0 +1,50 @@
+
+Elite Yelp Users:  Checklist Attributes from Data
+========================================================
+author: Max K. Goff
+date: 21 November 2015
+
+Yelp Elite Users
+========================================================
+
+Fewer than 1% of Yelp users have ever achieved elite status
+
+- Yelp blog:  __“… there is no set check list …”__ to achieve elite status.
+- Can text mining and analysis of user activity create a check list?
+- Can a Yelp Elite User predictive model yield a 95% Confidence Interval?
+
+Project Paper:
+
+Githup project assets:  https://github.com/maxgoff/YelpDataScienceProject.git
+
+Methods and Data
+========================================================
+The Yelp Academic Data Sets were ingested, flattened, tidied, combined, and modified, resulting in a test set to facilitate predictive modeling:
+```{r, echo=FALSE}
+load('ydata/df.data')
+knitr::kable(df)
+```
+
+Elite Users Do Better
+========================================================
+![Elite over Regular Ratios](img/eliteOverReg.png)
+- Post 6.3 times more reviews than regular users
+- Receive 12.47 times more Compliments
+- Have 10.57 times more Fans
+
+Derived Check List for Elite Status
+========================================================
+Activity  |  Performance Level
+-------- | -------------
+Write a review |  5 or more per month
+Characters per review | at least 1095
+Target reading level | 5th grade
+Vote on other reviews | at least 16.2 per month
+Get a compliment | at least 2.5 per month
+Make a friend | at least 1 per month
+Get a fan  | at least 1 per quarter
+
+13 Classification Models tested,  selected: caret::xgbTree
+- Model Confidence interval: 95%
+- Sensitivity: 98.9%  (User _is not_ Elite)
+- Specificity: 83.95% (User _is_ Elite)
