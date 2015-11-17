@@ -33,7 +33,9 @@ Each ‘record’ referenced above is a line of text.  The total size of all JSO
 
 Methods to download, extract, and tidy the data for analytics are detailed in the github repository  associated with this study. 
 
-After examination of the data, new fields were created and added to a modified version of the user data set to accommodate predictive modeling methods.  Additional (new) user data was generated using data from the review and tip data sets as well. The JSON formatted user data from Yelp was structured as below.  
+During exploratory examination of the data, new fields were iteratively created and added to a modified version of the user data set to accommodate predictive modeling explorations.  Additional (new) user data was generated using data from the review and tip data sets as well. 
+
+The JSON formatted user data from Yelp was structured as below, along with the fields added from review and tip data sets.  The explorations in text mining gave rise to the Flesch Kincaid (FK) score. 
 ![data table](img/TABLE.png)
 
 Numeric and integer fields from the Yelp User Data were taken as is (review_count, fans, and average_stars).  Other numeric and integer fields were derived from non-numeric fields from the Yelp User data set.  For example, the yelping_since field, a character field in the original data, with values such as “2010-10” were formatted into R Date objects and used to dervie the daysYelping numeric integer field, which could then be used in model development.  The friends field, a list of user_ids, was used to create the friendsCount integer field.  The isElite factor (yes or no) was derived from the elite field, which is blank in most cases, but a list for elite users, which included the years a user had enjoyed elite status, with values such as “2005 2006 2008”.  
